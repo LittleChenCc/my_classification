@@ -11,9 +11,9 @@ class LSTMClassifier(nn.Module):
         self.hidden_size = args.hidden_size
         self.dropout = nn.Dropout(0.2)
         self.embedding = nn.Embedding(self.args.vocab_size, self.args.embed_dim)
-        self.lstm = nn.ModuleList()
+        # self.lstm = nn.ModuleList()
         self.lstm_1 = nn.LSTM(args.embed_dim, self.hidden_size, 1, batch_first=True)
-        self.lstm_2 = nn.LSTM(self.hidden_size, self.hidden_size, 1, batch_first=True)
+        # self.lstm_2 = nn.LSTM(self.hidden_size, self.hidden_size, 1, batch_first=True)
         # self.lstm.append(nn.LSTM(args.embed_dim, self.hidden_size, 1, batch_first=True))
         # self.lstm.append(nn.LSTM(self.hidden_size, self.hidden_size, 1, batch_first=True))
         self.fc = nn.Linear(args.hidden_size, self.args.label_size)
